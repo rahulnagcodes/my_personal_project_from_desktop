@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 45%;
+      right: -15%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 90vh;
+      background-color: white;
+      z-index: 1;
+      border-radius: 15px;
+    }
+
+    #popup-iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+    }
+
+    #popup-button{
+      position: fixed;
+      bottom: 5%;
+      right:5%;
+      border-radius: 50%;
+      height: 80px;
+      width:80px;
+      background-color: blueviolet;
+      color:white;
+      outline: none;
+      border:none;
+
+    }
+  </style>
+  <body>
+    <h1>The iframe element</h1>
+    <button id="popup-button">Chat</button>
+    <div id="overlay"></div>
+    <div id="popup">
+      <iframe src="https://cpgai-hbbot-dev-ms-app02.azurewebsites.net/" id="popup-iframe"></iframe>
+    </div>
+
+    <script>
+      const button = document.getElementById("popup-button");
+      const overlay = document.getElementById("overlay");
+      const popup = document.getElementById("popup");
+
+      button.addEventListener("click", function () {
+        overlay.style.display = "block";
+        popup.style.display = "block";
+      });
+
+      overlay.addEventListener("click", function () {
+        overlay.style.display = "none";
+        popup.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
